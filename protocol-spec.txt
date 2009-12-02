@@ -1,0 +1,10 @@
+ICAR SERIAL PROTOCOL
+
+Accelerometer:
+
+A,D,N
+
+A is the letter A, identifying that this signal is related to the Accelerometer.
+D = Direction. Possible values: F,B  (forward, backward)
+N = Number provided by accelerometer. This is optional and may not be used. To use without number: A,D
+
