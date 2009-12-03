@@ -1,0 +1,7 @@
+## Actor ##
+A silly little app to read lines from a datastore and say them through a bash shell
+
+To use: Define a database in config/env.rb and run thor:db:bootstrap 
+
+#TODO
+Make Line into a Module so it can be used by another app to write lines
