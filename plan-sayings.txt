@@ -1,5 +1,5 @@
-Evan: * arduino - translates movement into 4 events F, B, N, Z
-Kyle: * serial-reader - reads code, pull 'saying', writes Line
+Evan: * arduino - translates movement into 4 events F, N, Z
+Michael: * serial-reader - reads code, pull 'saying', writes Line
 Bryan: * speaker - pulls Line, speaks
 Bryan: * tweeter - pulls Line, tweets
 
