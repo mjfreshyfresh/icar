@@ -12,14 +12,18 @@ class Scene
   attr_accessor :stopped
   attr_accessor :speaker
 
-  def start
+  def start(speaking=false)
     @speaker = Speaker.new
-    self.lines.create(:text => "Hello - I am Eye Car Two Point Oh") if lines_to_speak.empty?
+    self.lines.create(:text => "Hello - I am Eye Car Two Point Oh") if lines_to_speak.empty? && speaking
     true
   end
   
   def lines_to_speak
     self.lines(:spoken => false)
+  end
+  
+  def lines_to_tweet
+    self.lines(:tweetable => true, :tweeted => false)
   end
 
   def self.find_or_create_by_title(title)

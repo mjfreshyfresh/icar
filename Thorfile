@@ -1,7 +1,7 @@
 require 'rubygems'
 require 'thor'
 
-require File.join('config', 'env.rb')
+require File.join('model', 'icar.rb')
 
 class Db < Thor
   

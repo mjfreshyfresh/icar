@@ -1,8 +1,10 @@
 require 'model/icar'
 include Stepchange::ICar
 
+puts "Speaker ready."
+
 @scene = Scene.find_or_create_by_title('icar')
-@scene.start
+@scene.start(true)
 
 loop do
   @scene.play_next
