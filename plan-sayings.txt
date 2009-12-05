@@ -1,0 +1,13 @@
+Evan: * arduino - translates movement into 4 events F, B, N, Z
+Kyle: * serial-reader - reads code, pull 'saying', writes Line
+Bryan: * speaker - pulls Line, speaks
+Bryan: * tweeter - pulls Line, tweets
+
+== Forward Lines
+I'm racing beeotches, Go go go, get outta my way, eat my saw dust, here we go, my grandma races faster than you
+
+== Neutral Lines
+Push me push me, can we race yet, i'm ready are you, show me yours and i'll show you mine
+
+== Z-index Lines
+put me down, how would you feel if i just came and picked you up
