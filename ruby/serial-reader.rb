@@ -1,7 +1,7 @@
 # Plug in arduino with a sensor on the analog port
 require 'serialport.so'
 
-require '../model/icar.rb'
+require File.join("#{File.expand_path(File.dirname(__FILE__))}/../model", 'icar.rb')
 include Stepchange::ICar
 
 class MotherShip
