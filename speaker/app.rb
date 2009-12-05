@@ -1,4 +1,5 @@
-require 'config/env.rb'
+require 'model/icar'
+include Stepchange::ICar
 
 @scene = Scene.find_or_create_by_title('icar')
 @scene.start

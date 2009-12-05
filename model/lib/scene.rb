@@ -1,8 +1,8 @@
 class Scene
   
   include DataMapper::Resource
-  require File.join('lib', 'speaker.rb')
-  require File.join('lib', 'line.rb')
+  require File.join("#{File.expand_path(File.dirname(__FILE__))}", 'speaker.rb')
+  require File.join("#{File.expand_path(File.dirname(__FILE__))}", 'line.rb')
 
   property :id, Serial
   property :title, String
