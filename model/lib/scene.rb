@@ -17,6 +17,18 @@ class Scene
     self.lines.create(:text => "Hello - I am Eye Car Two Point Oh") if lines_to_speak.empty? && speaking
     true
   end
+
+  def speak(text, voice=nil)
+    self.lines.create(:text=>text, :voice => voice)
+  end
+
+  def laugh(text)
+    self.lines.create(:text=>text, :voice => Speaker::VOICES[:laugh])
+  end
+  
+  def tweet(text)
+    self.lines.create(:text=>text, :tweetable=>true)
+  end
   
   def lines_to_speak
     self.lines(:spoken => false)
@@ -36,7 +48,8 @@ class Scene
     stopped = false
     line = lines_to_speak.last
     if line
-      @speaker.say(line.text) 
+      voice = line.voice || nil
+      @speaker.say(line.text, voice)
       line.update(:spoken => true)
     end
     stopped = true

@@ -9,6 +9,8 @@ class Line
   property :tweetable, Boolean, :nullable => false, :default => false
   property :speakable, Boolean, :nullable => false, :default => true
 
+  property :voice, String
+
   belongs_to :scene
 
 end
