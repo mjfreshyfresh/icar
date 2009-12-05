@@ -1,0 +1,6 @@
+# Examples to create DB entries for speaking/tweeting
+
+@scene = Scene.find_or_create_by_title('icar')
+@scene.laugh('ha ha ha that tickles')
+@scene.speak('hello there')
+@scene.tweet('I am a tweeter') # will also speak by default

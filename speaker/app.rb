@@ -1,4 +1,4 @@
-require 'model/icar'
+require File.join("#{File.expand_path(File.dirname(__FILE__))}/../model", 'icar.rb')
 include Stepchange::ICar
 
 puts "Speaker ready."
