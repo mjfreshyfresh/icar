@@ -33,18 +33,20 @@ class MotherShip
   end
   
   def forward
-    randomize ["I'm racing beeotches", "Go go go, get outta my way", "eat my saw dust", 
-      "here we go, my grandma races faster than you"]
+    randomize ["I'm racing beeotches", "Go go go get outta my way", "eat my saw dust", 
+      "here we go", "my grandma races faster than you", "do you call that racing", "im sorry you are lame and cant twitter",
+      "i heart racing"]
   end
   
   def neutral
     randomize ["Push me push me", "can we race yet?", "i'm ready are you", 
-      "show me yours and i'll show you mine", "wanna go ride bikes"]
+      "show me yours and i'll show you mine", "wanna go ride bikes", "do i make you randy",
+      "i love beer, will you give me a beer", "beer makes me go", "icar is smarter than your honor student"]
   end
   
   def up
     randomize ["put me down", "how would you feel if i just came and picked you up", "why must everyone touch me",
-      "stop it stop it, you're touch me"]  
+      "stop it stop it, you're touch me", "yes yes yes right there"]  
   end
   
   private
