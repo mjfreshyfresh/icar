@@ -1,9 +1,8 @@
 # Plug in arduino with a sensor on the analog port
 require 'serialport.so'
 
-require 'rubygems'
-gem 'dm-core', '>= 0.10.0'
-require 'dm-core'
+require '../model/icar.rb'
+include Stepchange::ICar
 
 class MotherShip
   attr_accessor :port
@@ -55,8 +54,9 @@ class MotherShip
   end
   
   def do_a_line(line)
-    # save line here
-    puts "saving line #{line}"
+    puts "Saving line #{line}"
+    scene = Scene.find_or_create_by_title('icar')
+    scene.lines.create(:text=>line)
   end
   
 end
