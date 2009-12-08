@@ -8,5 +8,5 @@ puts "Speaker ready."
 
 loop do
   @scene.play_next
-  sleep 0.2
+  sleep 0.1
 end

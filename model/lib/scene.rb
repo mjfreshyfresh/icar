@@ -31,7 +31,7 @@ class Scene
   end
   
   def lines_to_speak
-    self.lines(:spoken => false)
+    self.lines(:spoken => false).unexpired
   end
   
   def lines_to_tweet
