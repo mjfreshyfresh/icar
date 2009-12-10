@@ -1,7 +1,7 @@
 class Speaker
   
   VOICES = {
-    :speak => 'Alex',
+    :speak => 'zarvox',
     :sing => 'Good News',
     :laugh => 'Hysterical'
   }
