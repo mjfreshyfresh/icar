@@ -23,6 +23,7 @@ end
 loop do
   message = @scene.lines_to_tweet.last
   if message
+    puts "tweeted"
     Tweeter.tweet(message.text)
     message.update(:tweeted => true)
   end
