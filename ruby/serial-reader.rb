@@ -38,7 +38,7 @@ class MotherShip
     randomize ["I'm racing beeotches!", "Go go go get outta my way!", "Eat my saw dust", 
       "Here we go yo", "My grandma races faster than you!", "Do you call that racing?", 
       "I'm sorry you're lame and can't twitter", "I heart racing!", '@LindseyK this race is for you!',
-      'Engage!', 'Mov-in mov-in mov-in!''I say, we must move forward, not backward, upward not forward,and always twirling, twirling, twirling towards freedom'
+      'Engage!', 'Mov-in mov-in mov-in!', 'I say, we must move forward, not backward, upward not forward,and always twirling, twirling, twirling towards freedom',
       'This is a race that means go!', 'you call that racing?', 'pistons popping aint no stopping now']
   end
   
@@ -61,7 +61,7 @@ class MotherShip
   private
   
   def randomize(arr)
-    arr.sort_by{ rand }.first
+    arr.sort_by{ rand }.sort_by{ rand }.sort_by{ rand }.last
   end
   
   def do_a_line(line, voice=nil)
