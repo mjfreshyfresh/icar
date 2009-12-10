@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  	<title>iCar 2.0</title>
+  	<link type="text/css" rel="stylesheet" href="global.css" />
+  	<script type="text/javascript" charset="utf-8" src="jquery-1.3.2.min.js"></script>
+  	<script type="text/javascript" charset="utf-8" src="pretty.js"></script>
+		
+		<script>
+		//icar2point0
+		
+		function parse_mentions(text){
+		  //return text.replace(/.*@(([a-z]|[0-9]|_)*)(^([a-z]|[0-9]|_))/ig, "<a href='http://twitter.com/$1'>@$1</a> ");
+		  // the following is in php
+		  //description = preg_replace("#(^|[\n ])@([^ \"\t\n\r<]*)#ise", "'\\1<a href=\"http://www.twitter.com/\\2\" >@\\2</a>'", $description);  
+      //description = preg_replace("#(^|[\n ])([\w]+?://[\w]+[^ \"\n\r\t<]*)#ise", "'\\1<a href=\"\\2\" >\\2</a>'", $description);  
+      //description = preg_replace("#(^|[\n ])((www|ftp)\.[^ \"\t\n\r<]*)#ise", "'\\1<a href=\"http://\\2\" >\\2</a>'", $description);
+		  return text;
+		}
+		
+		function load_all() {
+  		$.getJSON('http://search.twitter.com/search.json?q=from%3Aicar2point0+OR+%40icar2point0&count=10',function(data){
+		    $(data.results).each(function(i){
+		      if(data.results[i].from_user != 'icar2point0') {
+		        text = data.results[i].text;
+  		      text = parse_mentions(text);
+  		      //get_avatar(data.results[i].from_user);
+  		      $('#tweets').append('<li class="right"><p>'+text+'</p><small>'+prettyDate(data.results[i].created_at)+' by @'+data.results[i].from_user+'</small></li>');
+		      } else {
+  		      text = data.results[i].text;
+  		      text = parse_mentions(text);
+  		      $('#tweets').append('<li><p>'+text+'</p><small>'+prettyDate(data.results[i].created_at)+'</small></li>');
+  		    }
+		    });
+	      setTimeout("load_mentions("+data.results[0].id+")", 5000);
+		  });
+		}
+		
+		function load_mentions(since_id){
+		  var text = '';
+		  $.getJSON('http://search.twitter.com/search.json?q=from%3Aicar2point0+OR+%40icar2point0&since_id='+since_id,function(data){
+		    $(data.results).each(function(i){
+		      if(data.results[i].from_user != 'icar2point0') {
+		        text = data.results[i].text;
+  		      text = parse_mentions(text);
+  		      $('#tweets').prepend('<li class="right"><p>'+text+'</p><small>'+prettyDate(data.results[i].created_at)+' by @'+data.results[i].from_user+'</small></li>');
+		      } else {
+  		      text = data.results[i].text;
+  		      text = parse_mentions(text);
+  		      $('#tweets').prepend('<li><p>'+text+'</p><small>'+prettyDate(data.results[i].created_at)+'</small></li>');
+  		    }
+		    });
+		    if(data.results.length > 0){
+  		    setTimeout("load_mentions("+data.results[0].id+")", 5000);
+  		  }
+		    else{
+  		    setTimeout("load_mentions("+data.since_id+")", 5000);
+  		  }
+		  });
+		}
+		
+		function get_avatar(username) {
+		  $.getJSON('http://twitter.com/users/show.json?screen_name='+username),function(data){
+		    //
+		  }
+		}
+		</script>
+  </head>
+  <body>
+    <div id="wrapper">
+      <div id="col_left">
+        <h1><img src="img/logo.png" alt="iCar 2.0" /></h1>
+      <!--
+        <h2>What</h2>
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna.</p>
+          
+        <h2>Who</h2>
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna.</p>
+
+        <h2>Why</h2>
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna.</p>
+      -->
+      </div>
+      <div id="col_right">
+        <ul id="tweets">
+         
+        </ul>
+      </div>
+    </div>
+    
+    <script>load_all();</script>
+  </body>
+</html>
