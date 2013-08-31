@@ -1,6 +1,11 @@
-# Examples to create DB entries for speaking/tweeting
+# Background Story
 
-@scene = Scene.find_or_create_by_title('icar')
-@scene.laugh('ha ha ha that tickles')
-@scene.speak('hello there')
-@scene.tweet('I am a tweeter') # will also speak by default
+My first real physical computing project was back in Dec 2009 when the http://www.stumptown40.com was just getting started. I sat down with Bryan Fox, Kyle Drake, Robb Milne and Evan Reeves to concept a Pine Box Derby Car like no other!
+
+You can see some early pics of the project here: https://www.facebook.com/pages/iCar-20/197944689632
+
+The finally result can be seen here: http://www.flickr.com/photos/skylark64/4174820204/
+
+<img src="https://github.com/mjfreshyfresh/icar/raw/master/concept-diagram.pdf"/>
+
+
